@@ -1,3 +1,4 @@
+import 'package:booky_app/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import 'app_bar.dart';
@@ -7,6 +8,6 @@ class HomeScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: CustomAppBar(),);
+    return Scaffold(backgroundColor: AppColors.primary, appBar: CustomAppBar());
   }
 }
