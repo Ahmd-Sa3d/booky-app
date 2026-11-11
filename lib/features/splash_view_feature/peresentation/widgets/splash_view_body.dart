@@ -1,7 +1,9 @@
+import 'package:booky_app/core/utils/app_colors.dart';
 import 'package:booky_app/core/utils/app_images.dart';
-import 'package:booky_app/features/home_view_feature/peresntation/views/home_screen.dart';
+import 'package:booky_app/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -24,30 +26,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
     animatedController.forward();
 
     navigateMethod();
-  }
-
-  Future navigateMethod() {
-    return Future.delayed(Duration(seconds: 3), () async {
-      if (!mounted) return;
-     await Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
-    });
-  }
-
-  Animation<double> fadingMethod() {
-    return fadingAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: animatedController, curve: Curves.easeInOut),
-    );
-  }
-
-  void animatedControllerMethod() {
-    animatedController = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 1000),
-    );
-    slidingAnimation = Tween<Offset>(begin: Offset(0, 5), end: Offset(0, 0))
-        .animate(
-          CurvedAnimation(parent: animatedController, curve: Curves.easeInOut),
-        );
   }
 
   @override

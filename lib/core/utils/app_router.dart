@@ -1,4 +1,6 @@
+import 'package:booky_app/core/utils/app_colors.dart';
 import 'package:booky_app/features/home_view_feature/peresntation/views/home_screen.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/splash_view_feature/peresentation/views/splash_view.dart';
