@@ -8,6 +8,24 @@ abstract class AppStyles {
       fontWeight: FontWeight.w600,
     );
   }
+  static TextStyle montserrat14SMedium(BuildContext context) {
+    return GoogleFonts.montserrat(
+      fontSize: responsiveFontSize(14, context),
+      fontWeight: FontWeight.w500,
+    );
+  }
+  static TextStyle montserrat20SBold(BuildContext context) {
+    return GoogleFonts.montserrat(
+      fontSize: responsiveFontSize(20, context),
+      fontWeight: FontWeight.w500,
+    );
+  }
+  static TextStyle spectra20regular(BuildContext context) {
+    return GoogleFonts.spectral(
+      fontSize: responsiveFontSize(18, context),
+      fontWeight: FontWeight.w400,
+    );
+  }
 
   static double responsiveFontSize(double fontSize, BuildContext context) {
     double scaleFactor = getScaleFactor(context);
