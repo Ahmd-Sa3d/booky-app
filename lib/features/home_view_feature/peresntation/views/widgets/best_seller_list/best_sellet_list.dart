@@ -1,8 +1,6 @@
 import 'package:booky_app/features/home_view_feature/peresntation/views/widgets/best_seller_list/best_seller_list_item.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../../../../../../../core/utils/app_styles.dart';
-
 class BestSellerList extends StatelessWidget {
   const BestSellerList({super.key});
 

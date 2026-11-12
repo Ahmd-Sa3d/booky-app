@@ -1,4 +1,6 @@
+import 'package:booky_app/core/utils/app_colors.dart';
 import 'package:booky_app/core/utils/app_images.dart';
+import 'package:booky_app/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/widgets/custom_image_container.dart';
@@ -10,6 +12,7 @@ class BestSellerListItem extends StatelessWidget {
   // final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.sizeOf(context).width;
     return SizedBox(
       height: 105,
       child: Row(
@@ -33,12 +36,16 @@ class BestSellerListItem extends StatelessWidget {
                     overflow: TextOverflow.clip,
                   ),
                 ),
-                Text('J.K. Rowling'),
+                Text(
+                  'J.K. Rowling',
+                  style: AppStyles.montserrat14SMedium(context)
+                      .copyWith(color: AppColors.gray),
+                ),
                 Expanded(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(r'$20.99'),
+                      Text(r'$20.99',style: AppStyles.montserrat20SBold(context),),
                       Spacer(),
                       BestSellerItemRating(),
                     ],
