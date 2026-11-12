@@ -33,11 +33,14 @@ class BookDetailsBody extends StatelessWidget {
             SizedBox(height: 50),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30.0),
-              child: Text('You can also like',style: AppStyles.montserrat18SemiBold(context),),
+              child: Text(
+                'You can also like',
+                style: AppStyles.montserrat18SemiBold(context),
+              ),
             ),
-            SizedBox(height: 16,),
+            SizedBox(height: 16),
             SimilarBooksList(),
-            SizedBox(height: 10,)
+            SizedBox(height: 10),
           ],
         ),
       ),

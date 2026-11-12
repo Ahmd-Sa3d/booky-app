@@ -26,7 +26,7 @@ class CustomBooksDetailsButton extends StatelessWidget {
       child: TextButton(
         onPressed: () {},
         child: Text(
-          '19.99€',
+          title,
           style: AppStyles.montserrat20SBold(context)
               .copyWith(color: textColor),
         ),
