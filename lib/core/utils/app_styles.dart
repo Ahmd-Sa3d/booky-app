@@ -14,10 +14,16 @@ abstract class AppStyles {
       fontWeight: FontWeight.w500,
     );
   }
+  static TextStyle montserrat16SMedium(BuildContext context) {
+    return GoogleFonts.montserrat(
+      fontSize: responsiveFontSize(16, context),
+      fontWeight: FontWeight.w500,
+    );
+  }
   static TextStyle montserrat20SBold(BuildContext context) {
     return GoogleFonts.montserrat(
       fontSize: responsiveFontSize(20, context),
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.w700,
     );
   }
   static TextStyle spectra20regular(BuildContext context) {
