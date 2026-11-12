@@ -1,8 +1,10 @@
 import 'package:booky_app/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/utils/app_styles.dart';
 import 'app_bar.dart';
-import 'horizontal_list_view.dart';
+import 'best_seller_list/best_sellet_list.dart';
+import 'home_horizontal_list/horizontal_list_view.dart';
 
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({super.key});
@@ -12,12 +14,26 @@ class HomeScreenBody extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.primary,
       appBar: CustomAppBar(),
-      body: Column(
-        children: [
-          HorizontalListView(),
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(child: HorizontalListView()),
+          SliverToBoxAdapter(child: SizedBox(height: 50)),
+          SliverPadding(
+            padding: EdgeInsetsGeometry.only(left: 30),
+            sliver: SliverToBoxAdapter(
+              child: Text(
+                'Best Seller',
+                style: AppStyles.montserrat18SemiBold(context),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(child: SizedBox(height: 20)),
+          SliverPadding(
+            padding: EdgeInsetsGeometry.symmetric(horizontal: 30),
+            sliver: BestSellerList(),
+          ),
         ],
       ),
     );
   }
 }
-

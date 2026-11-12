@@ -4,9 +4,10 @@ import 'package:go_router/go_router.dart';
 import '../../features/splash_view_feature/peresentation/views/splash_view.dart';
 
 class AppRouter {
-  static final String splashScreen = '/';
-  static final String homeScreen = '/homeScreen';
+  static const String splashScreen = '/';
+  static const String homeScreen = '/homeScreen';
   final GoRouter router = GoRouter(
+    initialLocation: AppRouter.homeScreen,
     routes: [
       GoRoute(
         path: AppRouter.splashScreen,

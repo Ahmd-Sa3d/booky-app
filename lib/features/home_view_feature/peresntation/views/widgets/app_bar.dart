@@ -8,7 +8,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(titleSpacing: 30,
+    return AppBar(titleSpacing: 30,scrolledUnderElevation: 0,
       title:SvgPicture.asset(AppImages.svgLogo),
       actions: [
         IconButton(

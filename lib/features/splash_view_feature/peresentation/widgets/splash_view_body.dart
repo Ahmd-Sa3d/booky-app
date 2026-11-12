@@ -20,9 +20,9 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   @override
   void initState() {
+    super.initState();
     animatedControllerMethod();
     fadingMethod();
-    super.initState();
     animatedController.forward();
 
     navigateMethod();
