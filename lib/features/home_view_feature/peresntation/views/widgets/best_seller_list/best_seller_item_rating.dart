@@ -9,6 +9,7 @@ class BestSellerItemRating extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         FaIcon(FontAwesomeIcons.solidStar, size: 15, color: AppColors.yellow),
         SizedBox(width: 5),

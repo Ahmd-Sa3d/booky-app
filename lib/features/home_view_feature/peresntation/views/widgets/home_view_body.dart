@@ -16,7 +16,7 @@ class HomeScreenBody extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           HomeCustomSliverAppBar(),
-          SliverToBoxAdapter(child: HorizontalListView()),
+        const  SliverToBoxAdapter(child: HorizontalListView()),
           SliverToBoxAdapter(child: SizedBox(height: 50)),
           SliverPadding(
             padding: EdgeInsetsGeometry.only(left: 30),
@@ -28,7 +28,7 @@ class HomeScreenBody extends StatelessWidget {
             ),
           ),
           SliverToBoxAdapter(child: SizedBox(height: 20)),
-          SliverPadding(
+         const SliverPadding(
             padding: EdgeInsetsGeometry.symmetric(horizontal: 30),
             sliver: BestSellerList(),
           ),
