@@ -18,8 +18,7 @@ class BestSellerListItem extends StatelessWidget {
       child: Row(
         children: [
           CustomImageContainer(
-            width: 70,
-            height: 105,
+           ratio: 0.66666666666667,
             image: AppImages.harryPotter,
           ),
           SizedBox(width: 30),

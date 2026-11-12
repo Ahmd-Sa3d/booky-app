@@ -12,7 +12,7 @@ class BestSellerItemRating extends StatelessWidget {
       children: [
         FaIcon(FontAwesomeIcons.solidStar, size: 15, color: AppColors.yellow),
         SizedBox(width: 5),
-        Text('4.9', style: AppStyles.montserrat16SMedium(context),),
+        Text('4.9', style: AppStyles.montserrat16SMedium(context)),
         SizedBox(width: 5),
         Text(
           '(1500)',

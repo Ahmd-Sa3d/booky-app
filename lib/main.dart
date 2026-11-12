@@ -17,7 +17,7 @@ class BookyApp extends StatelessWidget {
     return MaterialApp.router(
       theme: AppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
-      routerConfig: AppRouter().router,
+      routerConfig: AppRouter.router,
     );
   }
 }
