@@ -1,16 +1,23 @@
 import 'package:booky_app/features/home_view_feature/peresntation/views/home_screen.dart';
 import 'package:booky_app/features/home_view_feature/peresntation/views/widgets/book_details/book_details_view.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/search_feature/presentation/views/search_view.dart';
 import '../../features/splash_view_feature/peresentation/views/splash_view.dart';
 
 abstract class AppRouter {
   static const String splashScreen = '/';
   static const String homeScreen = '/homeScreen';
-  static const String bookDetails = '/BookDetails';
+  static const String bookDetails = '/bookDetails';
+  static const String searchView = '/searchView';
   static final GoRouter router = GoRouter(
     initialLocation: AppRouter.splashScreen,
     routes: [
+      GoRoute(
+        path: AppRouter.searchView,
+        builder: (context, state) => const SearchView(),
+      ),
       GoRoute(
         path: AppRouter.splashScreen,
         builder: (context, state) => const SplashView(),
@@ -18,7 +25,28 @@ abstract class AppRouter {
       GoRoute(
         path: AppRouter.homeScreen,
         builder: (context, state) => const HomeScreen(),
-      ), GoRoute(
+        pageBuilder: (context, state) {
+          return CustomTransitionPage(child: HomeScreen(),transitionDuration: const Duration(milliseconds: 800),
+              transitionsBuilder: (context, animation, secondaryAnimation,
+                  child) {
+                const double begin = 0;
+                const double end  = 1;
+                const curve = Curves.easeInOut;
+
+                var tween = Tween(begin: begin, end: end).chain(
+                    CurveTween(curve: curve));
+
+                return FadeTransition(
+                  opacity: animation.drive(tween),
+                  child: child,
+                );
+              }
+
+
+          );
+        },
+      ),
+      GoRoute(
         path: AppRouter.bookDetails,
         builder: (context, state) => const BookDetailsView(),
       ),

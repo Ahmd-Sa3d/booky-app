@@ -25,10 +25,12 @@ class CustomBooksDetailsButton extends StatelessWidget {
       ),
       child: TextButton(
         onPressed: () {},
-        child: Text(
-          title,
-          style: AppStyles.montserrat20SBold(context)
-              .copyWith(color: textColor),
+        child: FittedBox(
+          child: Text(
+            title,
+            style: AppStyles.montserrat20SBold(context)
+                .copyWith(color: textColor),
+          ),
         ),
       ),
     );

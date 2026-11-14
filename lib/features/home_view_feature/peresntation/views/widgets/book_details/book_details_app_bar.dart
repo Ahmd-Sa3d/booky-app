@@ -12,7 +12,7 @@ class BookDetailsAppBar extends StatelessWidget implements PreferredSizeWidget {
         IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart_outlined)),
       ],
       automaticallyImplyLeading: false,
-      title: IconButton(
+      title: IconButton( 
         onPressed: () {
           GoRouter.of(context).pop();
         },
