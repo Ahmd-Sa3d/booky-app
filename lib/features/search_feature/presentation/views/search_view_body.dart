@@ -12,7 +12,9 @@ class SearchViewBody extends StatelessWidget {
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
-            SliverAppBar(floating: true,scrolledUnderElevation: 0,
+            SliverAppBar(
+              floating: true,
+              scrolledUnderElevation: 0,
               title: CustomSearchBarField(),
               automaticallyImplyLeading: false,
             ),

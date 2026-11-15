@@ -1,5 +1,6 @@
 import 'package:booky_app/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomSearchBarField extends StatelessWidget {
   const CustomSearchBarField({super.key});
@@ -8,8 +9,10 @@ class CustomSearchBarField extends StatelessWidget {
   Widget build(BuildContext context) {
     return SearchBar(
       leading: Padding(
-        padding: EdgeInsetsGeometry.symmetric(horizontal: 20),
-        child: Icon(Icons.arrow_back_rounded),
+        padding: EdgeInsetsGeometry.only(right: 20, left: 8),
+        child: IconButton(onPressed: (){
+          GoRouter.of(context).pop();
+        }, icon: Icon(Icons.arrow_back_rounded),)
       ),
       side: WidgetStateProperty.all(BorderSide(color: AppColors.white)),
       hintText: 'write book name',
