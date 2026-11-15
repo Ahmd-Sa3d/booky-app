@@ -1,8 +1,10 @@
 import 'package:booky_app/core/utils/app_colors.dart';
 import 'package:booky_app/core/utils/app_images.dart';
+import 'package:booky_app/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeCustomSliverAppBar extends StatelessWidget {
   const HomeCustomSliverAppBar({super.key});
@@ -19,7 +21,9 @@ class HomeCustomSliverAppBar extends StatelessWidget {
           padding: const EdgeInsets.only(right: 10.0),
           child: IconButton(
             icon: FaIcon(FontAwesomeIcons.magnifyingGlass),
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(context).push(AppRouter.searchView);
+            },
           ),
         ),
       ],
