@@ -30,9 +30,18 @@ class HomeRemoteDataSourcesImp implements HomeRemoteDataSources {
   }
 
   @override
-  Future<List<BookEntity>> fetchNewestBooks() {
-    // TODO: implement fetchNewestBooks
-    throw UnimplementedError();
+  Future<List<BookEntity>> fetchNewestBooks() async{
+    var data = await apiServices.get(endPoint: 'volumes?q=harry+potter&maxResults=6&key=AIzaSyB7sCrs5AGyoOJHrd3likZijb9-gJYBIgM');
+    List<BookEntity> books = getHarryPotterBooks(data);
+    return books;
+  }
+
+  List<BookEntity> getHarryPotterBooks(Map<String,dynamic> data) {
+     List <BookEntity> books = [];
+    for(var item in data['items']){
+      books.add(BookModel.fromJson(item));
+    }
+    return books;
   }
 
 }
