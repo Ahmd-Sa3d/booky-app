@@ -11,6 +11,8 @@ abstract class AppRouter {
   static const String homeScreen = '/homeScreen';
   static const String bookDetails = '/bookDetails';
   static const String searchView = '/searchView';
+
+
   static final GoRouter router = GoRouter(
     initialLocation: AppRouter.splashScreen,
     routes: [
