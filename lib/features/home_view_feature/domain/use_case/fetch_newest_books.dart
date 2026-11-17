@@ -5,14 +5,13 @@ import 'package:dartz/dartz.dart';
 
 import '../entities/home_view_entity.dart';
 
-class FetchNewestBooks extends UseCase<List<BookEntity>, NoParameter> {
+class FetchNewestBooksUseCase extends UseCase<List<BookEntity>, NoParameter> {
   final HomeRepo homeRepo;
 
-FetchNewestBooks(this.homeRepo);
+  FetchNewestBooksUseCase(this.homeRepo);
 
   @override
-  Future<Either<Failures, List<BookEntity>>> call([NoParameter? p]) async{
+  Future<Either<Failures, List<BookEntity>>> call([NoParameter? p]) async {
     return await homeRepo.fetchNewestBooks();
   }
-
 }
