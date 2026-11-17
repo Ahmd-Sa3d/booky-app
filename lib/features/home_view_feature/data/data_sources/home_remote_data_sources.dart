@@ -27,14 +27,13 @@ class HomeRemoteDataSourcesImp implements HomeRemoteDataSources {
     return books;
   }
 
-
-
   @override
   Future<List<BookEntity>> fetchNewestBooks() async {
     var data = await apiServices.get(
       endPoint: 'volumes?q=harry+potter&maxResults=6&key=AIzaSyB7sCrs5AGyoOJHrd3likZijb9-gJYBIgM',
     );
     List<BookEntity> books = getBooksList(data);
+    AppFunction.saveLocalBookData(books, AppConsts.kFeaturedBox);
     return books;
   }
 

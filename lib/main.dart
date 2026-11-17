@@ -13,6 +13,7 @@ void main() async{
   await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
   Hive.openBox(AppConsts.kFeaturedBox);
+  Hive.openBox(AppConsts.kNewestBox);
   runApp(const BookyApp());
 
 }
