@@ -3,15 +3,18 @@ import 'package:booky_app/core/utils/app_theme.dart';
 import 'package:booky_app/features/home_view_feature/domain/entities/home_view_entity.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import 'core/utils/app_router.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
   DevicePreview.enable();
-  runApp(const BookyApp());
+  await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
   Hive.openBox(AppConsts.kFeaturedBox);
+  runApp(const BookyApp());
+
 }
 
 class BookyApp extends StatelessWidget {
