@@ -6,15 +6,15 @@ import '../../features/home_view_feature/data/data_sources/home_local_data_sourc
 import '../../features/home_view_feature/data/data_sources/home_remote_data_sources.dart';
 import '../services/api_services.dart';
 
-final GetIt getIt = GetIt.instance();
+final GetIt getIt = GetIt.instance;
 
 void setupLocator() {
+  getIt.registerSingleton<ApiServices>(ApiServices(Dio()));
+
   getIt.registerSingleton<HomeRepoImp>(
     HomeRepoImp(
       homeLocalDataSource: HomeLocalDataSourceImp(),
       homeRemoteDataSources: HomeRemoteDataSourcesImp(getIt<ApiServices>()),
     ),
   );
-
-  getIt.registerSingleton<ApiServices>(ApiServices(Dio()));
 }

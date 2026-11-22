@@ -7,20 +7,21 @@ import 'package:booky_app/features/home_view_feature/domain/use_case/fetch_featu
 import 'package:booky_app/features/home_view_feature/domain/use_case/fetch_newest_books.dart';
 import 'package:booky_app/features/home_view_feature/peresntation/view_model/featured%20books%20cubit/fetch_featured_books_cubit.dart';
 import 'package:booky_app/features/home_view_feature/peresntation/view_model/newest%20books%20cubit/fetch_newest_books_cubit.dart';
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'core/utils/app_router.dart';
+import 'core/utils/simple_bloc_observer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  DevicePreview.enable();
+  setupLocator();
   await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
-  Hive.openBox(AppConsts.kFeaturedBox);
-  Hive.openBox(AppConsts.kNewestBox);
+  await Hive.openBox<BookEntity>(AppConsts.kFeaturedBox);
+  await Hive.openBox<BookEntity>(AppConsts.kNewestBox);
+  Bloc.observer = SimpleBlocObserver();
 
   runApp(const BookyApp());
 }
@@ -34,7 +35,9 @@ class BookyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => FetchFeaturedBooksCubit(
-            featureBooksUseCase: FetchFeatureBooksUseCase(getIt<HomeRepoImp>()),
+            featureBooksUseCase: FetchFeatureBooksUseCase(
+              getIt<HomeRepoImp>()..fetchFeaturedBooks(),
+            ),
           ),
         ),
 
@@ -43,7 +46,7 @@ class BookyApp extends StatelessWidget {
             fetchNewestBooksUseCase: FetchNewestBooksUseCase(
               getIt<HomeRepoImp>(),
             ),
-          ),
+          )..fetchNewestBooksUseCase,
         ),
       ],
       child: MaterialApp.router(
