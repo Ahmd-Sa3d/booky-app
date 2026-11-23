@@ -1,10 +1,12 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 
 class CustomImageContainer extends StatelessWidget {
   const CustomImageContainer({
     super.key,
     required this.image,
-    this.widget, required this.ratio,
+    this.widget,
+    required this.ratio,
   });
 
   final double ratio;
@@ -17,7 +19,10 @@ class CustomImageContainer extends StatelessWidget {
       aspectRatio: ratio,
       child: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage(image), fit: BoxFit.fill),
+          image: DecorationImage(
+            image: CachedNetworkImageProvider(image),
+            fit: BoxFit.fill,
+          ),
         ),
         child: widget,
       ),

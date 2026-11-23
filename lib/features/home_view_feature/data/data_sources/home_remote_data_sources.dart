@@ -6,7 +6,7 @@ import 'package:booky_app/features/home_view_feature/data/models/book_model.dart
 import '../../domain/entities/home_view_entity.dart';
 
 abstract class HomeRemoteDataSources {
-  Future<List<BookEntity>> fetchFeaturedBooks();
+  Future<List<BookEntity>> fetchFeaturedBooks({int pageNumber = 0});
 
   Future<List<BookEntity>> fetchNewestBooks();
 }
@@ -17,9 +17,10 @@ class HomeRemoteDataSourcesImp implements HomeRemoteDataSources {
   HomeRemoteDataSourcesImp(this.apiServices);
 
   @override
-  Future<List<BookEntity>> fetchFeaturedBooks() async {
+  Future<List<BookEntity>> fetchFeaturedBooks({int pageNumber = 0}) async {
     var data = await apiServices.get(
-      endPoint: 'volumes?q=animal&maxResults=6&key=AIzaSyB7sCrs5AGyoOJHrd3likZijb9-gJYBIgM',
+      endPoint:
+          'volumes?q=animal&maxResults=10&key=AIzaSyB7sCrs5AGyoOJHrd3likZijb9-gJYBIgM&startIndex=${pageNumber * 10}',
     );
     List<BookEntity> books = getBooksList(data);
 
@@ -30,10 +31,12 @@ class HomeRemoteDataSourcesImp implements HomeRemoteDataSources {
   @override
   Future<List<BookEntity>> fetchNewestBooks() async {
     var data = await apiServices.get(
-      endPoint: 'volumes?q=harry+potter&maxResults=6&key=AIzaSyB7sCrs5AGyoOJHrd3likZijb9-gJYBIgM',
+      endPoint:
+          'volumes?q=harry+potter&maxResults=10&key=AIzaSyB7sCrs5AGyoOJHrd3likZijb9-gJYBIgM&startIndex=0'
+          '',
     );
     List<BookEntity> books = getBooksList(data);
-    AppFunction.saveLocalBookData(books, AppConsts.kFeaturedBox);
+    AppFunction.saveLocalBookData(books, AppConsts.kNewestBox);
     return books;
   }
 
