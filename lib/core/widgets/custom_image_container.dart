@@ -19,6 +19,7 @@ class CustomImageContainer extends StatelessWidget {
       aspectRatio: ratio,
       child: Container(
         decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
           image: DecorationImage(
             image: CachedNetworkImageProvider(image),
             fit: BoxFit.fill,
