@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 abstract class Failures {
   final String message;
 
-  new(this.message);
+  Failures(this.message);
 }
 
 class CacheFailure extends Failures {

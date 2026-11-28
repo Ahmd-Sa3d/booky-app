@@ -5,11 +5,14 @@ import 'package:booky_app/features/home_view_feature/peresntation/views/widgets/
 import 'package:booky_app/features/home_view_feature/peresntation/views/widgets/book_details/similar_books_list.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../domain/entities/home_view_entity.dart';
 import 'book_details_info.dart';
 import 'boook_details_buttons.dart';
 
 class BookDetailsBody extends StatelessWidget {
-  const BookDetailsBody({super.key});
+  const BookDetailsBody({super.key, required this.book});
+
+  final BookEntity book;
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +25,12 @@ class BookDetailsBody extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 107),
               child: CustomImageContainer(
-                image: AppImages.bookPicture,
+                image: book.image ?? AppImages.noImageFoud,
                 ratio: 162 / 243,
               ),
             ),
             SizedBox(height: 40),
-            const BookDetailsInfo(),
+            BookDetailsInfo(book: book),
             SizedBox(height: 40),
             BookDetailsButtons(),
             SizedBox(height: 50),

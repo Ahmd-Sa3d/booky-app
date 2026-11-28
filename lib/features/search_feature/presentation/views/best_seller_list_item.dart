@@ -1,6 +1,5 @@
+import 'package:booky_app/features/home_view_feature/peresntation/views/widgets/best_seller_list/best_seller_list_bloc_builder.dart';
 import 'package:flutter/cupertino.dart';
-
-import '../../../home_view_feature/peresntation/views/widgets/best_seller_list/best_seller_list_item.dart';
 
 class SearchBarList extends StatelessWidget {
   const new({super.key});
@@ -10,7 +9,8 @@ class SearchBarList extends StatelessWidget {
     return SliverList.builder(
       itemBuilder: (context, index) => Padding(
         padding: EdgeInsets.only(bottom: 20),
-        child: BestSellerListItem(),
+        child: BestSellerListBlocBuilder(),
+        //todo : add list
       ),
       itemCount: 15,
     );

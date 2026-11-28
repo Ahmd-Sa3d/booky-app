@@ -3,6 +3,7 @@ import 'package:booky_app/features/home_view_feature/peresntation/views/home_scr
 import 'package:booky_app/features/home_view_feature/peresntation/views/widgets/book_details/book_details_view.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/home_view_feature/domain/entities/home_view_entity.dart';
 import '../../features/search_feature/presentation/views/search_view.dart';
 import '../../features/splash_view_feature/peresentation/views/splash_view.dart';
 
@@ -11,7 +12,6 @@ abstract class AppRouter {
   static const String homeScreen = '/homeScreen';
   static const String bookDetails = '/bookDetails';
   static const String searchView = '/searchView';
-
 
   static final GoRouter router = GoRouter(
     initialLocation: AppRouter.splashScreen,
@@ -33,11 +33,10 @@ abstract class AppRouter {
             transitionDuration: const Duration(milliseconds: 800),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
-              
                   return SharedAxisTransition(
                     animation: animation,
                     secondaryAnimation: secondaryAnimation,
-                     transitionType: SharedAxisTransitionType.horizontal,
+                    transitionType: SharedAxisTransitionType.horizontal,
                     child: child,
                   );
                 },
@@ -46,7 +45,8 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: AppRouter.bookDetails,
-        builder: (context, state) => const BookDetailsView(),
+        builder: (context, state) =>
+            BookDetailsView(book: state.extra as BookEntity),
       ),
     ],
   );

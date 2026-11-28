@@ -18,7 +18,7 @@ class HorizontalListItem extends StatelessWidget {
       padding: const EdgeInsets.only(right: 15.0),
       child: GestureDetector(
         onTap: () {
-          GoRouter.of(context).push(AppRouter.bookDetails);
+          GoRouter.of(context).push(AppRouter.bookDetails, extra: books);
         },
         child: CustomImageContainer(
           ratio: 0.65,
