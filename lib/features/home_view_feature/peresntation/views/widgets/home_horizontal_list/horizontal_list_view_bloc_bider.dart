@@ -1,8 +1,10 @@
+import 'package:booky_app/core/widgets/skeletonizer_loading_effect.dart';
 import 'package:booky_app/features/home_view_feature/domain/entities/home_view_entity.dart';
 import 'package:booky_app/features/home_view_feature/peresntation/view_model/featured%20books%20cubit/fetch_featured_books_cubit.dart';
-import 'package:booky_app/features/home_view_feature/peresntation/views/widgets/home_horizontal_list/horizontal_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'horizontal_list_view.dart';
 
 class HorizontalListViewBlocBider extends StatefulWidget {
   const HorizontalListViewBlocBider({super.key});
@@ -35,7 +37,7 @@ class _HorizontalListViewBlocBiderState
         } else if (state is FetchFeaturedBooksFailure) {
           return Text(state.message);
         } else {
-          return Center(child: CircularProgressIndicator());
+          return SkeletonizerLoadingEffect(books: books);
         }
       },
     );

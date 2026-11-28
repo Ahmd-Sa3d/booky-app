@@ -20,7 +20,7 @@ final class FetchFeaturedBooksPaginationLoading
 final class FetchFeaturedBooksSuccess extends FetchFeaturedBooksState {
   final List<BookEntity> books;
 
-  new(this.books);
+  FetchFeaturedBooksSuccess(this.books);
 }
 
 final class FetchFeaturedBooksFailure extends FetchFeaturedBooksState {
